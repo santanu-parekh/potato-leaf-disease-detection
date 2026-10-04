@@ -88,9 +88,9 @@ set MODEL_DIR=C:\path\to\model_folder        # Windows (cmd)
 
 > Fill in after training: test accuracy, confusion matrix and training curves.
 
-| Metric | Value |
-|---|---|
-| Test accuracy | _xx.xx %_ |
+<img width="1200" height="400" alt="training_curves" src="https://github.com/user-attachments/assets/0b2daccd-7791-43e6-9b9e-3262670f7abe" />
+<img width="600" height="500" alt="confusion_matrix" src="https://github.com/user-attachments/assets/f7bca1c2-25b4-42a0-96b3-a72ec7cf4486" />
+
 
 ## Limitations
 
