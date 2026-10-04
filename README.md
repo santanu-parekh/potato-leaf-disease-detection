@@ -1,16 +1,6 @@
 # 🥔 Potato Leaf Disease Detection
 
-A deep learning project that classifies potato leaf images into **Early Blight**, **Late Blight** or **Healthy** using a Convolutional Neural Network (CNN) built with TensorFlow/Keras.
-
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shantanuparekh/potato-leaf-disease-detection/blob/main/potato_disease_colab.ipynb)
-
-## Run it in Google Colab (no installation)
-
-1. Click the **Open in Colab** badge above.
-2. **Just want to try it?** Run *Setup*, then *Option A* (loads the pretrained model), then the last cell and upload a leaf photo.
-3. **Want to train it yourself?** Upload the dataset to Google Drive, follow *Option B*, then run the last cell.
-
-> Before first use, replace `shantanuparekh` in this README and in the notebook's `GITHUB_USER` variable with your GitHub username.
+A deep learning project that classifies potato leaf images into **Early Blight**, **Late Blight** or **Healthy** using a Convolutional Neural Network (CNN) built with TensorFlow/Keras. It includes a training script and a simple desktop GUI for testing leaf photos.
 
 ## Classes
 
@@ -20,9 +10,27 @@ A deep learning project that classifies potato leaf images into **Early Blight**
 | `Potato___Late_blight` | Late Blight (*Phytophthora infestans*) |
 | `Potato___healthy` | Healthy leaf |
 
+## Installation (local)
+
+**Requirements:** Python 3.10 or newer (check that your Python version is supported by TensorFlow) and `pip`.
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/shantanuparekh/potato-leaf-disease-detection.git
+cd potato-leaf-disease-detection
+
+# 2. (Recommended) create a virtual environment
+python -m venv venv
+venv\Scripts\activate          # Windows
+# source venv/bin/activate     # macOS / Linux
+
+# 3. Install dependencies
+pip install -r requirements.txt
+```
+
 ## Dataset
 
-The dataset is **not stored in this repo** (too large). Use a potato-leaf dataset arranged as one folder per class with the three names above (e.g. the potato classes of the PlantVillage dataset). Your folder should look like:
+The dataset is **not stored in this repo** (too large). Download a potato-leaf dataset and arrange it as one folder per class using the three names above (e.g. the potato classes of the PlantVillage dataset):
 
 ```
 dataset/
@@ -33,30 +41,46 @@ dataset/
 
 Split used: **80% training / 20% testing** (plus 10% of the training part for validation during training).
 
+## Usage
+
+### 1. Train the model
+
+```bash
+python train_model.py --data_dir "path/to/dataset" --output_dir models --epochs 20
+```
+
+This saves the following into `models/`:
+- `potato_model.keras` - the trained model
+- `class_names.json` - class order used by the model
+- `training_curves.png` and `confusion_matrix.png` - result graphs
+
+It also prints test accuracy and a classification report (precision, recall, F1).
+
+### 2. Test with the desktop GUI
+
+```bash
+python gui_app.py
+```
+
+Click **Choose Image**, select a leaf photo, then click **Predict** to see the disease, confidence and short treatment advice.
+The GUI reads the model from `./models` by default. To use a model stored elsewhere, set the `MODEL_DIR` environment variable first:
+
+```bash
+set MODEL_DIR=C:\path\to\model_folder        # Windows (cmd)
+# export MODEL_DIR=/path/to/model_folder     # macOS / Linux
+```
+
 ## Model
 
 4 × (Conv2D + MaxPooling) → Flatten → Dense(128) → Dropout(0.5) → Dense(3, softmax), with data augmentation (flip, rotate, zoom). About 831K trainable parameters, input size 128×128.
 
-## Run locally
-
-```bash
-pip install -r requirements.txt
-
-# train
-python train_model.py --data_dir "path/to/dataset" --output_dir models --epochs 20
-
-# desktop GUI (uses ./models by default; set MODEL_DIR to use another folder)
-python gui_app.py
-```
-
 ## Project structure
 
 ```
-├── potato_disease_colab.ipynb   # Colab notebook (train + predict)
-├── train_model.py               # training script
-├── gui_app.py                   # Tkinter desktop GUI
+├── train_model.py     # training + evaluation script
+├── gui_app.py         # Tkinter desktop GUI
 ├── requirements.txt
-├── models/                      # trained model + class_names.json
+├── models/            # trained model + class_names.json
 └── docs/Potato_Model_Code_Explained.pdf   # plain-language code explanation
 ```
 

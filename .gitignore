@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+.DS_Store
+# dataset is NOT stored in this repo (too large)
+dataset/
+Plant_leave_diseases_dataset_with_augmentation/
+# training checkpoints / plots
+best_model.keras
+*.png
+!docs/*.png
