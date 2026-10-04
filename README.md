@@ -2,6 +2,14 @@
 
 A deep learning project that classifies potato leaf images into **Early Blight**, **Late Blight** or **Healthy** using a Convolutional Neural Network (CNN) built with TensorFlow/Keras. It includes a training script and a simple desktop GUI for testing leaf photos.
 
+
+
+
+https://github.com/user-attachments/assets/dc06547a-e30e-45ac-aacc-91fa4f56f31c
+
+
+
+
 ## Classes
 
 | Class | Meaning |
