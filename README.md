@@ -5,7 +5,11 @@ A deep learning project that classifies potato leaf images into **Early Blight**
 
 
 
-https://github.com/user-attachments/assets/dc06547a-e30e-45ac-aacc-91fa4f56f31c
+
+
+https://github.com/user-attachments/assets/f21885ca-b2dd-4c07-8aab-f6c0ce2a2774
+
+
 
 
 
