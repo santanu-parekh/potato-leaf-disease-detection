@@ -99,8 +99,9 @@ set MODEL_DIR=C:\path\to\model_folder        # Windows (cmd)
 ## Results
 
 
-<img width="1374" height="1145" alt="Dark Theme Potato Confusion Matrix" src="https://github.com/user-attachments/assets/0725c4b5-ea42-4bc6-bddc-d2ac5c22f95f" />
-<img width="2172" height="724" alt="Dark Theme Accuracy and Loss Charts" src="https://github.com/user-attachments/assets/2f2d920d-ac41-43cb-927b-1cab181d37a6" />
+<img width="1374" height="1145" alt="Neon Green Confusion Matrix" src="https://github.com/user-attachments/assets/16764683-ea6d-4680-9bb7-c03989d7acf0" />
+<img width="2172" height="724" alt="Dark Theme Training Curves" src="https://github.com/user-attachments/assets/b6590033-73ba-48b9-8603-1b1d9b85b853" />
+
 
 
 
